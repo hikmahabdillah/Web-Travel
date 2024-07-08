@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "name": "Gunung Bromo",
+    "img": "/img/bromo.jpg",
+    "benefits": [
+      "1. Pemandangan matahari terbit yang menakjubkan",
+      "2. Trekking seru di kaldera Bromo",
+      "3. Mengunjungi kawah Bromo yang aktif"
+    ],
+    "typeTrip": "Adventure"
+  },
+  {
+    "id": 2,
+    "name": "Pulau Komodo",
+    "img": "/img/komodo.jpg",
+    "benefits": [
+      "1. Melihat komodo di habitat aslinya",
+      "2. Snorkeling di perairan jernih",
+      "3. Menikmati pemandangan pantai yang eksotis"
+    ],
+    "typeTrip": "Nature"
+  },
+  {
+    "id": 3,
+    "name": "Candi Borobudur",
+    "img": "/img/borobudur.jpg",
+    "benefits": [
+      "1. Menyaksikan keindahan Candi Borobudur",
+      "2. Menikmati sunrise dari puncak candi",
+      "3. Mengenal sejarah dan budaya Jawa Tengah"
+    ],
+    "typeTrip": "Cultural"
+  },
+  {
+    "id": 4,
+    "name": "Raja Ampat",
+    "img": "/img/rajaampat.jpg",
+    "benefits": [
+      "1. Diving di spot-spot terbaik dunia",
+      "2. Melihat keanekaragaman hayati bawah laut",
+      "3. Berlayar dan eksplorasi pulau-pulau kecil"
+    ],
+    "typeTrip": "Marine"
+  },
+  {
+    "id": 5,
+    "name": "Tana Toraja",
+    "img": "/img/toraja.jpg",
+    "benefits": [
+      "1. Mengunjungi rumah adat Tongkonan",
+      "2. Menyaksikan upacara pemakaman tradisional",
+      "3. Trekking di perbukitan dan lembah Toraja"
+    ],
+    "typeTrip": "Cultural"
+  }
+]
