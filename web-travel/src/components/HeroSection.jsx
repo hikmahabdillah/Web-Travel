@@ -1,8 +1,26 @@
-const Component = ({ children }) => {
+import { useEffect, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import "swiper/css/autoplay";
+import {
+  EffectCoverflow,
+  Pagination,
+  Navigation,
+  Autoplay,
+} from "swiper/modules";
+import getTripData from "../hooks/useTrip";
+
+const Component = ({ children, imgState }) => {
   return (
     <>
-      <section className="bg-center bg-no-repeat bg-[url('https://i.pinimg.com/564x/10/0e/e4/100ee45e43f7c1e7ec8801750d14929d.jpg')] bg-gray-300 bg-blend-multiply h-[41rem] w-full bg-cover relative flex justify-center">
-        <div className="h-full w-full bg-gradient-to-b from-transparent from-0% via-transparent via-75% to-slate-50 to-100% absolute z-0"></div>
+      <section
+        className={`bg-center bg-no-repeat bg-cover bg-gray-300 bg-blend-multiply h-[41rem] w-full relative flex justify-center`}
+        style={{ backgroundImage: `url(${imgState})` }}
+      >
+        <div className="h-full w-full bg-gradient-to-b from-transparent via-transparent to-slate-50 absolute z-0"></div>
         <div className="h-full px-10 md:px-14 mx-auto max-w-screen-xl flex items-center gap-5 absolute z-10">
           {children}
         </div>
@@ -27,52 +45,102 @@ const TextHeader = () => {
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste blanditiis
         nulla ea magnam corporis. Mollitia aperiam labore aspernatur eligendi.
       </p>
-      <div className="flex flex-col space-y-4 sm:flex-row sm:space-y-0">
-        <a
-          href="#"
-          className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-neutral-800 rounded-lg bg-slate-100 hover:bg-slate-300 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
+
+      <a
+        href="#"
+        className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-neutral-800 rounded-lg bg-slate-50 hover:bg-slate-300 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900 w-full max-w-40"
+      >
+        Get started
+        <svg
+          className="w-3.5 h-3.5 ms-2 rtl:rotate-180"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 14 10"
         >
-          Get started
-          <svg
-            className="w-3.5 h-3.5 ms-2 rtl:rotate-180"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 14 10"
-          >
-            <path
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M1 5h12m0 0L9 1m4 4L9 9"
-            />
-          </svg>
-        </a>
-        <a
-          href="#"
-          className="inline-flex justify-center hover:text-gray-900 items-center py-3 px-5 sm:ms-4 text-base font-medium text-center text-white rounded-lg border border-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-400"
-        >
-          Learn more
-        </a>
-      </div>
+          <path
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M1 5h12m0 0L9 1m4 4L9 9"
+          />
+        </svg>
+      </a>
     </div>
   );
 };
 
-const ImageSlider = () => {
+const ImageSlider = ({ setCurrentImageSrc }) => {
+  const trips = getTripData();
+  const [swiper, setSwiper] = useState(null);
+
+  useEffect(() => {
+    if (swiper) {
+      setSwiper(swiper);
+      swiper.on("slideChange", () => {
+        const currentSlide = swiper.el.querySelector(".swiper-slide-active");
+        if (currentSlide) {
+          const img = currentSlide.querySelector("img");
+          setCurrentImageSrc(img.src);
+          console.log(img.alt);
+        }
+      });
+    }
+  }, [swiper, setCurrentImageSrc]);
+
+  // useEffect(()=> {
+  //   handleSlideChange();
+  // }, [swiper])
+
   return (
-    <div className="hidden md:flex md:items-center md:justify-center md:w-1/2 ">
-      <div className="bg-center bg-no-repeat bg-cover bg-[url('https://i.pinimg.com/564x/6b/a4/cc/6ba4cc76c17b74c9e6e3f3719ad59bc8.jpg')] h-96 w-72 rounded-xl shadow-lg"></div>
+    <div className="hidden md:flex md:items-center md:justify-center md:w-1/2">
+      <Swiper
+        effect={"coverflow"}
+        grabCursor={true}
+        centeredSlides={true}
+        loop={true}
+        slidesPerView={"auto"}
+        coverflowEffect={{
+          rotate: 0,
+          stretch: 0,
+          depth: 100,
+          modifier: 2.5,
+        }}
+        autoplay={{
+          delay: 10000,
+          disableOnInteraction: false,
+          start: true,
+        }}
+        modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
+        className="swiper_container"
+        // onS={(swiper) => setSwiper(swiper)}
+        onSlideChange={(swiper) => {
+          setSwiper(swiper);
+        }}
+      >
+        {trips.length > 0 &&
+          trips.map((trip) => (
+            <SwiperSlide key={trip.id}>
+              <img
+                src={trip.img}
+                alt={trip.name}
+                className="h-96 w-72 rounded-xl shadow-lg"
+              />
+            </SwiperSlide>
+          ))}
+      </Swiper>
     </div>
   );
 };
 
 const HeroSection = () => {
+  const [currentImageSrc, setCurrentImageSrc] = useState("");
+
   return (
-    <Component>
+    <Component imgState={currentImageSrc}>
       <TextHeader />
-      <ImageSlider />
+      <ImageSlider setCurrentImageSrc={setCurrentImageSrc} />
     </Component>
   );
 };

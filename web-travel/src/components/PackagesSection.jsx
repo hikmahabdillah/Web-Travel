@@ -1,4 +1,4 @@
-import getTripData from "../hooks/useTrip"; // Pastikan Anda mengimpor data hook Anda
+import getTripData from "../hooks/useTrip";
 
 const PackagesSection = () => {
   const trips = getTripData();
@@ -12,7 +12,12 @@ const PackagesSection = () => {
             <li key={trip.id} className="my-5">
               <div>{trip.name}</div>
               <div>
-                <img src={trip.img} alt={trip.name} />
+                <img
+                  src={trip.img}
+                  alt={trip.name}
+                  height={"200px"}
+                  width={"200px"}
+                />
               </div>
               <div>
                 {trip.benefits.map((benefit, index) => (

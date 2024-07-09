@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "Gunung Bromo",
-    "img": "/img/bromo.jpg",
+    "img": "https://i.pinimg.com/736x/82/3c/41/823c41e6f17ebb5df40fa811b1aec13c.jpg",
     "benefits": [
       "1. Pemandangan matahari terbit yang menakjubkan",
       "2. Trekking seru di kaldera Bromo",
@@ -13,7 +13,7 @@
   {
     "id": 2,
     "name": "Pulau Komodo",
-    "img": "/img/komodo.jpg",
+    "img": "https://i.pinimg.com/564x/6b/a4/cc/6ba4cc76c17b74c9e6e3f3719ad59bc8.jpg",
     "benefits": [
       "1. Melihat komodo di habitat aslinya",
       "2. Snorkeling di perairan jernih",
@@ -24,7 +24,7 @@
   {
     "id": 3,
     "name": "Candi Borobudur",
-    "img": "/img/borobudur.jpg",
+    "img": "https://i.pinimg.com/736x/e3/7d/08/e37d0869a62d95a3e1af46ce658656d2.jpg",
     "benefits": [
       "1. Menyaksikan keindahan Candi Borobudur",
       "2. Menikmati sunrise dari puncak candi",
@@ -35,7 +35,7 @@
   {
     "id": 4,
     "name": "Raja Ampat",
-    "img": "/img/rajaampat.jpg",
+    "img": "https://i.pinimg.com/564x/dc/64/f7/dc64f767ec651f2239ea9101cda2bb3f.jpg",
     "benefits": [
       "1. Diving di spot-spot terbaik dunia",
       "2. Melihat keanekaragaman hayati bawah laut",
@@ -46,7 +46,7 @@
   {
     "id": 5,
     "name": "Tana Toraja",
-    "img": "/img/toraja.jpg",
+    "img": "https://i.pinimg.com/564x/55/66/6e/55666e71febaf5447c8024942b3422fc.jpg",
     "benefits": [
       "1. Mengunjungi rumah adat Tongkonan",
       "2. Menyaksikan upacara pemakaman tradisional",
