@@ -5,9 +5,9 @@ import PackagesSection from "./components/PackagesSection";
 function App() {
   return (
     <>
-      <Navbar></Navbar>
-      <HeroSection/>
-      <PackagesSection/>
+      <Navbar />
+      <HeroSection />
+      <PackagesSection />
     </>
   );
 }
