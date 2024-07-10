@@ -1,8 +1,8 @@
 const Navbar = () => {
   return (
     <>
-      <nav className="bg-transparent border-gray-200 fixed top-0 z-50 w-full text-slate-100">
-        <div className="container mx-auto flex items-center justify-between p-4">
+      <nav className="bg-transparent border-gray-200 fixed top-0 z-50 text-slate-100 w-full max-w-7xl">
+        <div className="mx-auto  w-full max-w-7xl flex items-center justify-between px-7 py-4">
           <a
             href="#"
             className="flex items-center space-x-3 rtl:space-x-reverse"
@@ -19,7 +19,7 @@ const Navbar = () => {
           <button
             data-collapse-toggle="navbar-dropdown"
             type="button"
-            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-slate-500 rounded-lg md:hidden bg-slate-100 focus:outline-none focus:ring-2 focus:ring-slate-200"
             aria-controls="navbar-dropdown"
             aria-expanded="false"
           >

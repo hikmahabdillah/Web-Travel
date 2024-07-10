@@ -48,7 +48,7 @@ body {
   }
 }
 
-.swiper-slide img {
+.swiper-slide img,.overlayGradient {
   /* width: 100%; */
   border-radius: 2rem;
   object-fit: cover;

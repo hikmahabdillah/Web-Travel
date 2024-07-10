@@ -6,7 +6,7 @@ const PackagesSection = () => {
 
   return (
     <>
-      <ul className="my-24 px-5">
+      {/* <ul className="my-24 px-5">
         {trips.length > 0 &&
           trips.map((trip) => (
             <li key={trip.id} className="my-5">
@@ -29,7 +29,7 @@ const PackagesSection = () => {
               <div>{trip.typeTrip}</div>
             </li>
           ))}
-      </ul>
+      </ul> */}
     </>
   );
 };

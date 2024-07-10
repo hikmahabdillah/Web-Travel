@@ -83,7 +83,7 @@ const ImageSlider = ({ setCurrentImageSrc }) => {
         if (currentSlide) {
           const img = currentSlide.querySelector("img");
           setCurrentImageSrc(img.src);
-          console.log(img.alt);
+          // console.log(img.alt);
         }
       });
     }
@@ -125,8 +125,13 @@ const ImageSlider = ({ setCurrentImageSrc }) => {
               <img
                 src={trip.img}
                 alt={trip.name}
-                className="h-96 w-72 rounded-xl shadow-lg"
+                className="h-96 w-72 shadow-lg"
               />
+                <h2 className="text-2xl font-semibold text-slate-50 absolute bottom-5 left-5 z-10">
+                  {trip.name}
+                </h2>
+                <div className="overlayGradient h-full w-full bg-gradient-to-b from-transparent via-transparent to-neutral-600 absolute top-0 z-0"></div>
+              
             </SwiperSlide>
           ))}
       </Swiper>
