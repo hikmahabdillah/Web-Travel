@@ -8,7 +8,9 @@
       "2. Trekking seru di kaldera Bromo",
       "3. Mengunjungi kawah Bromo yang aktif"
     ],
-    "typeTrip": "Adventure"
+    "typeTrip": "opentrip",
+    "price": 150,
+    "location": "East Java, Indonesia"
   },
   {
     "id": 2,
@@ -19,7 +21,9 @@
       "2. Snorkeling di perairan jernih",
       "3. Menikmati pemandangan pantai yang eksotis"
     ],
-    "typeTrip": "Nature"
+    "typeTrip": "longtrip",
+    "price": 300,
+    "location": "East Nusa Tenggara, Indonesia"
   },
   {
     "id": 3,
@@ -30,7 +34,9 @@
       "2. Menikmati sunrise dari puncak candi",
       "3. Mengenal sejarah dan budaya Jawa Tengah"
     ],
-    "typeTrip": "Cultural"
+    "typeTrip": "cheaptrip",
+    "price": 100,
+    "location": "Central Java, Indonesia"
   },
   {
     "id": 4,
@@ -41,7 +47,9 @@
       "2. Melihat keanekaragaman hayati bawah laut",
       "3. Berlayar dan eksplorasi pulau-pulau kecil"
     ],
-    "typeTrip": "Marine"
+    "typeTrip": "privatetrip",
+    "price": 500,
+    "location": "West Papua, Indonesia"
   },
   {
     "id": 5,
@@ -52,6 +60,268 @@
       "2. Menyaksikan upacara pemakaman tradisional",
       "3. Trekking di perbukitan dan lembah Toraja"
     ],
-    "typeTrip": "Cultural"
+    "typeTrip": "opentrip",
+    "price": 200,
+    "location": "South Sulawesi, Indonesia"
+  },
+  {
+    "id": 6,
+    "name": "Gunung Rinjani",
+    "img": "https://i.pinimg.com/736x/7a/1d/01/7a1d01d5a4ef5899a20a0db1ac1d562f.jpg",
+    "benefits": [
+      "1. Trekking menantang di jalur Rinjani",
+      "2. Pemandangan indah dari puncak",
+      "3. Mengunjungi Danau Segara Anak"
+    ],
+    "typeTrip": "longtrip",
+    "price": 250,
+    "location": "Lombok, Indonesia"
+  },
+  {
+    "id": 7,
+    "name": "Taman Nasional Baluran",
+    "img": "https://i.pinimg.com/564x/2e/91/f3/2e91f3e8e7b14c0e8e71ee42f7e27b0e.jpg",
+    "benefits": [
+      "1. Menyaksikan satwa liar di habitat asli",
+      "2. Menikmati savana yang luas",
+      "3. Mengunjungi Pantai Bama"
+    ],
+    "typeTrip": "cheaptrip",
+    "price": 100,
+    "location": "East Java, Indonesia"
+  },
+  {
+    "id": 8,
+    "name": "Pulau Weh",
+    "img": "https://i.pinimg.com/564x/4b/1b/5d/4b1b5d2a3172677208a45b827d02d1d4.jpg",
+    "benefits": [
+      "1. Snorkeling di pantai yang indah",
+      "2. Menikmati keindahan bawah laut",
+      "3. Trekking ke puncak Gunung Seulawah"
+    ],
+    "typeTrip": "privatetrip",
+    "price": 300,
+    "location": "Aceh, Indonesia"
+  },
+  {
+    "id": 9,
+    "name": "Bukit Lawang",
+    "img": "https://i.pinimg.com/564x/1b/39/35/1b39356699cb097f5ff1cb2a6ef87230.jpg",
+    "benefits": [
+      "1. Melihat orangutan di habitat aslinya",
+      "2. Menyusuri sungai dengan tubing",
+      "3. Trekking di Taman Nasional Gunung Leuser"
+    ],
+    "typeTrip": "opentrip",
+    "price": 150,
+    "location": "North Sumatra, Indonesia"
+  },
+  {
+    "id": 10,
+    "name": "Kawah Ijen",
+    "img": "https://i.pinimg.com/564x/8a/92/7d/8a927d37f7ab85b8f95b38e0b3d6b746.jpg",
+    "benefits": [
+      "1. Menyaksikan blue fire yang langka",
+      "2. Trekking menantang ke puncak Ijen",
+      "3. Pemandangan indah dari kawah"
+    ],
+    "typeTrip": "cheaptrip",
+    "price": 100,
+    "location": "East Java, Indonesia"
+  },
+  {
+    "id": 11,
+    "name": "Pantai Kuta",
+    "img": "https://i.pinimg.com/564x/6b/a4/cc/6ba4cc76c17b74c9e6e3f3719ad59bc8.jpg",
+    "benefits": [
+      "1. Berselancar di ombak yang sempurna",
+      "2. Menikmati sunset di pantai",
+      "3. Berjalan-jalan di sepanjang pantai"
+    ],
+    "typeTrip": "privatetrip",
+    "price": 200,
+    "location": "Bali, Indonesia"
+  },
+  {
+    "id": 12,
+    "name": "Danau Toba",
+    "img": "https://i.pinimg.com/564x/6b/a4/cc/6ba4cc76c17b74c9e6e3f3719ad59bc8.jpg",
+    "benefits": [
+      "1. Menikmati keindahan danau vulkanik terbesar",
+      "2. Mengunjungi Pulau Samosir",
+      "3. Melihat budaya Batak"
+    ],
+    "typeTrip": "opentrip",
+    "price": 250,
+    "location": "North Sumatra, Indonesia"
+  },
+  {
+    "id": 13,
+    "name": "Taman Nasional Ujung Kulon",
+    "img": "https://i.pinimg.com/564x/1b/39/35/1b39356699cb097f5ff1cb2a6ef87230.jpg",
+    "benefits": [
+      "1. Trekking di hutan tropis",
+      "2. Menyaksikan badak Jawa",
+      "3. Berkemah di alam terbuka"
+    ],
+    "typeTrip": "longtrip",
+    "price": 300,
+    "location": "Banten, Indonesia"
+  },
+  {
+    "id": 14,
+    "name": "Pantai Tanjung Bira",
+    "img": "https://i.pinimg.com/564x/8a/92/7d/8a927d37f7ab85b8f95b38e0b3d6b746.jpg",
+    "benefits": [
+      "1. Menikmati pasir putih yang halus",
+      "2. Snorkeling dan diving",
+      "3. Melihat sunset yang indah"
+    ],
+    "typeTrip": "cheaptrip",
+    "price": 150,
+    "location": "South Sulawesi, Indonesia"
+  },
+  {
+    "id": 15,
+    "name": "Gunung Merbabu",
+    "img": "https://i.pinimg.com/564x/4b/1b/5d/4b1b5d2a3172677208a45b827d02d1d4.jpg",
+    "benefits": [
+      "1. Trekking ke puncak Merbabu",
+      "2. Menikmati pemandangan dari atas",
+      "3. Camping di area perkemahan"
+    ],
+    "typeTrip": "privatetrip",
+    "price": 200,
+    "location": "Central Java, Indonesia"
+  },
+  {
+    "id": 16,
+    "name": "Gunung Krakatau",
+    "img": "https://i.pinimg.com/564x/2e/91/f3/2e91f3e8e7b14c0e8e71ee42f7e27b0e.jpg",
+    "benefits": [
+      "1. Menyaksikan aktivitas gunung berapi",
+      "2. Trekking ke puncak Krakatau",
+      "3. Mengenal sejarah gunung berapi"
+    ],
+    "typeTrip": "opentrip",
+    "price": 250,
+    "location": "Lampung, Indonesia"
+  },
+  {
+    "id": 17,
+    "name": "Pulau Derawan",
+    "img": "https://i.pinimg.com/564x/2e/91/f3/2e91f3e8e7b14c0e8e71ee42f7e27b0e.jpg",
+    "benefits": [
+      "1. Menyelam di perairan yang indah",
+      "2. Menyaksikan penyu bertelur",
+      "3. Snorkeling di sekitar pulau"
+    ],
+    "typeTrip": "longtrip",
+    "price": 300,
+    "location": "East Kalimantan, Indonesia"
+  },
+  {
+    "id": 18,
+    "name": "Gunung Semeru",
+    "img": "https://i.pinimg.com/564x/1b/39/35/1b39356699cb097f5ff1cb2a6ef87230.jpg",
+    "benefits": [
+      "1. Trekking menantang ke puncak tertinggi di Jawa",
+      "2. Menikmati pemandangan dari puncak",
+      "3. Mengunjungi Danau Ranu Kumbolo"
+    ],
+    "typeTrip": "cheaptrip",
+    "price": 150,
+    "location": "East Java, Indonesia"
+  },
+  {
+    "id": 19,
+    "name": "Pulau Belitung",
+    "img": "https://i.pinimg.com/564x/2e/91/f3/2e91f3e8e7b14c0e8e71ee42f7e27b0e.jpg",
+    "benefits": [
+      "1. Menikmati keindahan pantai dan batu granit",
+      "2. Snorkeling di perairan jernih",
+      "3. Mengunjungi pulau-pulau kecil di sekitar"
+    ],
+    "typeTrip": "privatetrip",
+    "price": 250,
+    "location": "Bangka Belitung, Indonesia"
+  },
+  {
+    "id": 20,
+    "name": "Pulau Alor",
+    "img": "https://i.pinimg.com/564x/6b/a4/cc/6ba4cc76c17b74c9e6e3f3719ad59bc8.jpg",
+    "benefits": [
+      "1. Menyelam di salah satu spot terbaik",
+      "2. Menikmati keindahan bawah laut",
+      "3. Berinteraksi dengan masyarakat lokal"
+    ],
+    "typeTrip": "opentrip",
+    "price": 300,
+    "location": "East Nusa Tenggara, Indonesia"
+  },
+  {
+    "id": 21,
+    "name": "Pulau Lombok",
+    "img": "https://i.pinimg.com/564x/1b/39/35/1b39356699cb097f5ff1cb2a6ef87230.jpg",
+    "benefits": [
+      "1. Menikmati pantai dan gunung",
+      "2. Snorkeling di Gili Trawangan",
+      "3. Trekking ke Gunung Rinjani"
+    ],
+    "typeTrip": "longtrip",
+    "price": 250,
+    "location": "West Nusa Tenggara, Indonesia"
+  },
+  {
+    "id": 22,
+    "name": "Taman Nasional Komodo",
+    "img": "https://i.pinimg.com/564x/8a/92/7d/8a927d37f7ab85b8f95b38e0b3d6b746.jpg",
+    "benefits": [
+      "1. Melihat komodo di habitat aslinya",
+      "2. Snorkeling di perairan jernih",
+      "3. Menikmati pemandangan pantai"
+    ],
+    "typeTrip": "cheaptrip",
+    "price": 150,
+    "location": "East Nusa Tenggara, Indonesia"
+  },
+  {
+    "id": 23,
+    "name": "Pulau Wakatobi",
+    "img": "https://i.pinimg.com/564x/4b/1b/5d/4b1b5d2a3172677208a45b827d02d1d4.jpg",
+    "benefits": [
+      "1. Menyelam di spot-spot terbaik",
+      "2. Melihat keanekaragaman hayati bawah laut",
+      "3. Menikmati pantai yang indah"
+    ],
+    "typeTrip": "privatetrip",
+    "price": 300,
+    "location": "Southeast Sulawesi, Indonesia"
+  },
+  {
+    "id": 24,
+    "name": "Gunung Kelimutu",
+    "img": "https://i.pinimg.com/564x/1b/39/35/1b39356699cb097f5ff1cb2a6ef87230.jpg",
+    "benefits": [
+      "1. Menyaksikan keindahan tiga danau",
+      "2. Trekking ke puncak gunung",
+      "3. Menikmati pemandangan dari atas"
+    ],
+    "typeTrip": "opentrip",
+    "price": 200,
+    "location": "Flores, Indonesia"
+  },
+  {
+    "id": 25,
+    "name": "Pantai Parangtritis",
+    "img": "https://i.pinimg.com/564x/2e/91/f3/2e91f3e8e7b14c0e8e71ee42f7e27b0e.jpg",
+    "benefits": [
+      "1. Menikmati sunset di pantai",
+      "2. Bermain layang-layang",
+      "3. Menyusuri pantai dengan ATV"
+    ],
+    "typeTrip": "cheaptrip",
+    "price": 100,
+    "location": "Yogyakarta, Indonesia"
   }
 ]

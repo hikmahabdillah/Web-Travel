@@ -21,7 +21,7 @@ const Component = ({ children, imgState }) => {
         style={{ backgroundImage: `url(${imgState})` }}
       >
         <div className="h-full w-full bg-gradient-to-b from-transparent via-transparent to-slate-50 absolute z-0"></div>
-        <div className="h-full px-10 md:px-14 mx-auto max-w-screen-xl flex items-center gap-5 absolute z-10">
+        <div className="h-full px-8 sm:px-10 md:px-14 w-full max-w-screen-xl flex items-center gap-5 absolute z-10">
           {children}
         </div>
         <img
@@ -120,7 +120,7 @@ const ImageSlider = ({ setCurrentImageSrc }) => {
         }}
       >
         {trips.length > 0 &&
-          trips.map((trip) => (
+          trips.slice(0, 5).map((trip) => (
             <SwiperSlide key={trip.id}>
               <img
                 src={trip.img}

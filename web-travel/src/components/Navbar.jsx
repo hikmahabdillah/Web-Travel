@@ -28,7 +28,7 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`nav-sticky bg-transparent fixed top-0 left-1/2 transform -translate-x-1/2 z-50 text-slate-100 w-full max-w-[1400px] transition-all duration-700 border-transparent ${
+        className={`nav-sticky bg-transparent fixed top-0 left-1/2 transform -translate-x-1/2 z-50 text-slate-100 w-full max-w-[1366px] transition-all duration-700 border-transparent ${
           visible ? "translate-y-0" : "-translate-y-full"
         }`}
       >
