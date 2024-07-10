@@ -1,6 +1,7 @@
 import HeroSection from "./components/HeroSection";
 import Navbar from "./components/Navbar";
 import PackagesSection from "./components/PackagesSection";
+import ReviewSection from "./components/ReviewSection";
 import ServicesSection from "./components/ServicesSection";
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
       <HeroSection />
       <ServicesSection/>
       <PackagesSection />
+      <ReviewSection />
     </>
   );
 }

@@ -32,7 +32,7 @@ const Navbar = () => {
           visible ? "translate-y-0" : "-translate-y-full"
         }`}
       >
-        <div className="mx-auto w-full flex items-center justify-between px-7 py-4">
+        <div className="mx-auto w-full flex items-center justify-between px-7 md:px-12 py-4">
           <a
             href="#"
             className="flex items-center space-x-3 rtl:space-x-reverse"
