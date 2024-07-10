@@ -47,7 +47,7 @@ const TextHeader = () => {
       </p>
 
       <a
-        href="#"
+        href="#packages"
         className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-neutral-800 rounded-lg bg-slate-50 hover:bg-slate-300 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900 w-full max-w-40"
       >
         Get started

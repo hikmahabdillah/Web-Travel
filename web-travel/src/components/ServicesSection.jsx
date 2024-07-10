@@ -1,6 +1,6 @@
 const ServicesSection = () => {
   return (
-    <section className="px7 sm:px-10 my-24 grid place-content-center">
+    <section id="services" className="px7 sm:px-10 my-24 grid place-content-center">
       <header className="text-left mb-8">
         <h1 className="text-3xl font-bold md:text-4xl lg:text-5xl">Our Services</h1>
         <p className="text-base md:text-lg font-semibold text-gray-600">
