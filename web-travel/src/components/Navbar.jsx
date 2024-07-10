@@ -4,35 +4,35 @@ const Navbar = () => {
   const [prevScrollPos, setPrevScrollPos] = useState(window.scrollY);
   const [visible, setVisible] = useState(true);
 
-  useEffect(()=> {
+  useEffect(() => {
     const handleScroll = () => {
       const currentScrollPos = window.scrollY;
       const header = document.querySelector("nav.nav-sticky");
-  
+
       if (header) {
         header.classList.toggle("backdrop-blur-md", window.scrollY > 0);
         header.classList.toggle("backdrop-brightness-50", window.scrollY > 0);
         header.classList.toggle("border-b", window.scrollY > 0);
-        header.classList.toggle("border-neutral-300", window.scrollY > 0);
+        header.classList.toggle("border-neutral-600", window.scrollY > 0);
       }
-  
+
       setVisible(prevScrollPos > currentScrollPos || currentScrollPos < 10);
       setPrevScrollPos(currentScrollPos);
-    }
-      window.addEventListener("scroll", handleScroll);
-      return () => {
-        window.removeEventListener("scroll", handleScroll);
-      };
-  },[prevScrollPos, visible])
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [prevScrollPos, visible]);
 
   return (
     <>
       <nav
-        className={`nav-sticky bg-transparent fixed top-0 z-50 text-slate-100 w-full max-w-7xl transition-all duration-700 border-transparent ${
+        className={`nav-sticky bg-transparent fixed top-0 left-1/2 transform -translate-x-1/2 z-50 text-slate-100 w-full max-w-[1400px] transition-all duration-700 border-transparent ${
           visible ? "translate-y-0" : "-translate-y-full"
         }`}
       >
-        <div className="mx-auto  w-full max-w-7xl flex items-center justify-between px-7 py-4">
+        <div className="mx-auto w-full flex items-center justify-between px-7 py-4">
           <a
             href="#"
             className="flex items-center space-x-3 rtl:space-x-reverse"

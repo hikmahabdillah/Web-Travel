@@ -1,7 +1,7 @@
 const ServicesSection = () => {
   return (
-    <section className="px-10 my-24 grid place-content-center place-items-center">
-      <header className="mb-8">
+    <section className="px-10 my-24 grid place-content-center">
+      <header className="text-left mb-8">
         <h1 className="text-5xl font-bold">Our Services</h1>
         <p className="text-lg font-semibold text-gray-600">
           Top Benefits when using our services

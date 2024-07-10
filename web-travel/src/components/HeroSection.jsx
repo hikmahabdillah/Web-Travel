@@ -17,7 +17,7 @@ const Component = ({ children, imgState }) => {
   return (
     <>
       <section
-        className={`bg-center bg-no-repeat bg-cover bg-gray-300 bg-blend-multiply h-[41rem] w-full relative flex justify-center`}
+        className={`bg-center bg-no-repeat bg-cover bg-gray-400 bg-blend-multiply h-[41rem] w-full relative flex justify-center`}
         style={{ backgroundImage: `url(${imgState})` }}
       >
         <div className="h-full w-full bg-gradient-to-b from-transparent via-transparent to-slate-50 absolute z-0"></div>
@@ -127,11 +127,10 @@ const ImageSlider = ({ setCurrentImageSrc }) => {
                 alt={trip.name}
                 className="h-96 w-72 shadow-lg"
               />
-                <h2 className="text-2xl font-semibold text-slate-50 absolute bottom-5 left-5 z-10">
-                  {trip.name}
-                </h2>
-                <div className="overlayGradient h-full w-full bg-gradient-to-b from-transparent via-transparent to-neutral-600 absolute top-0 z-0"></div>
-              
+              <h2 className="text-2xl font-semibold text-slate-50 absolute bottom-5 left-5 z-10">
+                {trip.name}
+              </h2>
+              <div className="overlayGradient h-full w-full bg-gradient-to-b from-transparent via-transparent to-neutral-600 absolute top-0 z-0"></div>
             </SwiperSlide>
           ))}
       </Swiper>
