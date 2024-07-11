@@ -1,3 +1,4 @@
+import Footer from "./components/Footer";
 import HeroSection from "./components/HeroSection";
 import Navbar from "./components/Navbar";
 import PackagesSection from "./components/PackagesSection";
@@ -12,6 +13,7 @@ function App() {
       <ServicesSection/>
       <PackagesSection />
       <ReviewSection />
+      <Footer/>
     </>
   );
 }
