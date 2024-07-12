@@ -66,7 +66,7 @@ const PackagesSection = () => {
                 />
                 <h2 className="text-2xl font-semibold">{trip.name}</h2>
                 <p className="text-base">{trip.location}</p>
-                <span className="mt-6 flex justify-between h-full">
+                <span className="mt-6 flex items-end justify-between h-full">
                   <p className="text-2xl font-bold">IDR {trip.price}K</p>
                   <p className="text-lg font-semibold">Detail</p>
                 </span>
