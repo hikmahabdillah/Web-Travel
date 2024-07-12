@@ -1,4 +1,4 @@
-import getTripData from "../hooks/useTrip";
+import {getTripData} from "../hooks/useTrip";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
@@ -98,7 +98,7 @@ const PackagesSection = () => {
                 <p className="text-base">{trip.location}</p>
                 <span className="mt-6 flex items-end justify-between h-full">
                   <p className="text-2xl font-bold">IDR {trip.price}K</p>
-                  <Link to={`/detail/${trip.id}`}>
+                  <Link to={`/detail-package/${trip.id}`}>
                     <p className="text-lg font-semibold">
                       Detail <i className="ms-1 fa-solid fa-arrow-right "></i>
                     </p>

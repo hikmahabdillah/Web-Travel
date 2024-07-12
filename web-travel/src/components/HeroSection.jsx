@@ -11,7 +11,7 @@ import {
   Navigation,
   Autoplay,
 } from "swiper/modules";
-import getTripData from "../hooks/useTrip";
+import {getTripData} from "../hooks/useTrip";
 
 const Component = ({ children, imgState }) => {
   return (
