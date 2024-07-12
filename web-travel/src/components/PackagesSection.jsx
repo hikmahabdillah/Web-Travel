@@ -50,7 +50,7 @@ const PackagesSection = () => {
         id="packages"
         className="px-7 sm:px-10 my-24 flex flex-col items-center"
       >
-        <header className="text-left mb-8 w-full md:max-w-2xl lg:max-w-5xl flex items-center gap-4 justify-between">
+        <header className="text-left mb-8 w-full md:max-w-2xl lg:max-w-5xl flex flex-wrap items-center gap-4 justify-between">
           <span>
             <h1 className="text-3xl font-bold md:text-4xl lg:text-5xl">
               Choose Your Package
@@ -81,7 +81,7 @@ const PackagesSection = () => {
             </form>
           </span>
         </header>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 place-content-center w-full md:max-w-2xl lg:max-w-5xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 place-content-center justify-items-center w-full md:max-w-2xl lg:max-w-5xl">
           {filteredPackages.length > 0 &&
             filteredPackages.slice(0, 6).map((trip) => (
               <div
