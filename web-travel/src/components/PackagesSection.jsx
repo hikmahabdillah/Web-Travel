@@ -8,12 +8,41 @@ const PackagesSection = () => {
 
   const handleChange = (event) => {
     setFilter(event.target.value);
-    console.log(filter);
+    console.log(event.target.value); // Print nilai baru yang dipilih
   };
 
-  const filteredPackages = filter
-    ? trips.filter((pkg) => pkg.typeTrip === filter)
-    : trips;
+  const spanLabel = () => {
+    switch (filter) {
+      case "cheaptrip":
+        return (
+          <span className="bg-green-100 text-green-800 font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300 w-max mb-2">
+            Cheap Trip
+          </span>
+        );
+      case "privatetrip":
+        return (
+          <span className="bg-gray-100 text-gray-800 font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300 w-max mb-2">
+            Private Trip
+          </span>
+        );
+      case "opentrip":
+        return (
+          <span className="bg-blue-100 text-blue-800 font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300 w-max mb-2">
+            Open Trip
+          </span>
+        );
+      case "longtrip":
+        return (
+          <span className="bg-yellow-100 text-yellow-800 font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300 w-max mb-2">
+            Long Trip
+          </span>
+        );
+      default:
+        return null;
+    }
+  };
+
+  const filteredPackages = trips.filter((pkg) => pkg.typeTrip === filter);
 
   return (
     <>
@@ -27,7 +56,7 @@ const PackagesSection = () => {
               Choose Your Package
             </h1>
             <p className="text-base md:text-lg font-semibold text-gray-600">
-              Here is top packages recomendation
+              Here is top packages recommendation
             </p>
           </span>
           <span className="flex gap-4 items-center max-w-xs w-full">
@@ -52,13 +81,14 @@ const PackagesSection = () => {
             </form>
           </span>
         </header>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 place-content-center  w-full md:max-w-2xl lg:max-w-5xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 place-content-center w-full md:max-w-2xl lg:max-w-5xl">
           {filteredPackages.length > 0 &&
             filteredPackages.slice(0, 6).map((trip) => (
               <div
                 key={trip.id}
                 className="flex flex-col p-4 rounded-lg shadow w-full max-w-80 text-neutral-800"
               >
+                {spanLabel()}
                 <img
                   src={trip.img}
                   alt={trip.name}
@@ -68,7 +98,11 @@ const PackagesSection = () => {
                 <p className="text-base">{trip.location}</p>
                 <span className="mt-6 flex items-end justify-between h-full">
                   <p className="text-2xl font-bold">IDR {trip.price}K</p>
-                  <p className="text-lg font-semibold">Detail</p>
+                  <Link to={`/detail/${trip.id}`}>
+                    <p className="text-lg font-semibold">
+                      Detail <i className="ms-1 fa-solid fa-arrow-right "></i>
+                    </p>
+                  </Link>
                 </span>
               </div>
             ))}
