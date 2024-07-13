@@ -55,10 +55,10 @@ const Detail = () => {
     <>
       <section
         id="detailPackages"
-        className="px-7 sm:px-10 py-24 flex flex-col items-center bg-neutral-300"
+        className="px-7 sm:px-10 py-24 flex flex-col items-center bg-gradient-to-b from-neutral-800 via-slate-50 to-slate-50"
       >
         <header className="text-left mb-8 w-full md:max-w-2xl lg:max-w-5xl flex items-center gap-4 justify-between">
-          <h1 className="text-3xl font-bold md:text-4xl lg:text-5xl">
+          <h1 className="text-3xl font-bold md:text-4xl lg:text-5xl text-slate-100">
             Detail Package
           </h1>
         </header>
