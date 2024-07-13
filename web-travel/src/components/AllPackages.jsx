@@ -1,25 +1,26 @@
 import { getTripData } from "../hooks/useTrip";
 import spanLabel from "./TripLabel";
+import { FilterTrip } from "../context/FilterTrip";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useDebounce } from "use-debounce";
 
 const AllPackages = () => {
   const trips = getTripData();
-  const [filter, setFilter] = useState("");
+  const { filter, setFilter } = useContext(FilterTrip);
+  console.log("filter : ", filter);
+
   const [search, setSearch] = useState("");
   const [sortBy, setSortBy] = useState("");
   const [sortType, setSortType] = useState("asc");
   const [debounceValue] = useDebounce(search, 500);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   // event handler
   const handleChange = (event) => setFilter(event.target.value);
   const handleSort = (event) => setSortBy(event.target.value);
   const handleSortType = (event) => setSortType(event.target.value);
-
-  if (!trips) {
-    return <div>Loading...</div>;
-  }
+  const toggleModal = () => setIsModalOpen(!isModalOpen);
 
   const searchPackages = debounceValue
     ? trips.filter((pkg) =>
@@ -105,8 +106,7 @@ const AllPackages = () => {
               </div>
             </form>
             <button
-              data-modal-target="top-right-modal"
-              data-modal-toggle="top-right-modal"
+              onClick={toggleModal}
               className="block w-max text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
               type="button"
             >
@@ -115,24 +115,23 @@ const AllPackages = () => {
             </button>
 
             {/* <!-- Top Right Modal --> */}
+            {isModalOpen && (
             <div
               id="top-right-modal"
-              data-modal-placement="top-right"
-              tabIndex="-1"
-              className="fixed top-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full"
+              className="w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full"
             >
-              <div className="relative w-full max-w-2xl max-h-full">
+              <div className="fixed top-5 right-5 z-50  w-full max-w-2xl max-h-full">
                 {/* <!-- Modal content --> */}
                 <div className="relative bg-slate-100 rounded-lg shadow ">
                   {/* <!-- Modal header --> */}
-                  <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                  <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t ">
                     <h3 className="text-xl font-medium text-gray-900">
                       Filter & Sort
                     </h3>
                     <button
                       type="button"
+                      onClick={toggleModal}
                       className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center "
-                      data-modal-hide="top-right-modal"
                     >
                       <svg
                         className="w-3 h-3"
@@ -218,9 +217,9 @@ const AllPackages = () => {
                     </span>
                   </div>
                   {/* <!-- Modal footer --> */}
-                  <div className="flex items-center p-4 md:p-5 space-x-3 rtl:space-x-reverse border-t border-gray-200 rounded-b dark:border-gray-600">
+                  <div className="flex items-center p-4 md:p-5 space-x-3 rtl:space-x-reverse border-t border-gray-200 rounded-b ">
                     <button
-                      data-modal-hide="top-right-modal"
+                      onClick={toggleModal}
                       type="button"
                       className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                     >
@@ -230,14 +229,20 @@ const AllPackages = () => {
                 </div>
               </div>
             </div>
+            )}
           </div>
         </header>
+        {!trips && (
+          <div>
+            <h2 className="text-2xl text-neutral-800 font-semibold">Loading...</h2>
+          </div>
+        )}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 place-content-center justify-items-center w-full md:max-w-2xl lg:max-w-5xl">
           {sortedPackages.length > 0 &&
             sortedPackages.map((trip) => (
               <div
                 key={trip.id}
-                className="flex flex-col p-4 rounded-lg shadow w-full max-w-80text-neutral-800 bg-slate-50"
+                className="flex flex-col p-4 rounded-lg shadow w-full max-w-80 text-neutral-800 bg-slate-50"
               >
                 {spanLabel(trip.typeTrip)}
                 <img

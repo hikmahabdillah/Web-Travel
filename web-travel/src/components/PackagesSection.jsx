@@ -1,11 +1,13 @@
 import {getTripData} from "../hooks/useTrip";
 import spanLabel from "./TripLabel";
+import {FilterTrip} from "../context/FilterTrip"
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useContext } from "react";
 
 const PackagesSection = () => {
   const trips = getTripData();
-  const [filter, setFilter] = useState("cheaptrip");
+  const { filter, setFilter } = useContext(FilterTrip);
+  // const [filter, setFilter] = useState("cheaptrip");
 
   const handleChange = (event) => {
     setFilter(event.target.value);
@@ -51,6 +53,11 @@ const PackagesSection = () => {
             </form>
           </span>
         </header>
+        {!trips && (
+          <div>
+            <h2 className="text-2xl text-neutral-800 font-semibold">Loading...</h2>
+          </div>
+        )}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 place-content-center justify-items-center w-full md:max-w-2xl lg:max-w-5xl">
           {filteredPackages.length > 0 &&
             filteredPackages.slice(0, 6).map((trip) => (

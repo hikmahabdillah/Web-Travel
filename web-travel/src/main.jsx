@@ -5,10 +5,12 @@ import DetailPackages from './DetailPackages.jsx'
 import AllPackagesPage from './AllPackagesPage.jsx'
 import NotFoundPage from './NotFoundPage.jsx'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import FilterTripContextProvider from "./context/FilterTrip";
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+      <FilterTripContextProvider>
     <BrowserRouter>
             <Routes>
               <Route path="/" element={<App />}/>
@@ -17,5 +19,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </BrowserRouter>
+      </FilterTripContextProvider>
+
   </React.StrictMode>,
 )
