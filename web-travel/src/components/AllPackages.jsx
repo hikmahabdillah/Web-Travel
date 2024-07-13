@@ -1,6 +1,6 @@
 import { getTripData } from "../hooks/useTrip";
 import { Link } from "react-router-dom";
-import { useState} from "react";
+import { useState } from "react";
 import { useDebounce } from "use-debounce";
 
 const AllPackages = () => {
@@ -11,19 +11,10 @@ const AllPackages = () => {
   const [sortType, setSortType] = useState("asc");
   const [debounceValue] = useDebounce(search, 500);
 
-  const handleChange = (event) => {
-    setFilter(event.target.value);
-    console.log(event.target.value); // Print nilai baru yang dipilih
-  };
-
-  const handleSort = (event) => {
-    setSortBy(event.target.value)
-  }
-
-  const handleSortType = (event) => {
-    setSortType(event.target.value)
-    console.log(sortType);
-  }
+  // event handler
+  const handleChange = (event) => setFilter(event.target.value);
+  const handleSort = (event) => setSortBy(event.target.value);
+  const handleSortType = (event) => setSortType(event.target.value);
 
   const spanLabel = (filter) => {
     switch (filter) {
@@ -71,14 +62,12 @@ const AllPackages = () => {
     : searchPackages;
 
   const sortedPackages = [...filteredPackages].sort((a, b) => {
-    if (sortBy === "name" && sortType === "asc") {
-      return a.name.localeCompare(b.name);
-    } else if (sortBy === "price" && sortType === "asc") {
-      return a.price - b.price;
-    } else if (sortBy === "name" && sortType === "desc") {
-      return b.name.localeCompare(a.name);
-    } else if (sortBy === "price" && sortType === "desc") {
-      return b.price - a.price;
+    if (sortBy === "name") {
+      return sortType === "asc"
+        ? a.name.localeCompare(b.name)
+        : b.name.localeCompare(a.name);
+    } else if (sortBy === "price") {
+      return sortType === "asc" ? a.price - b.price : b.price - a.price;
     }
     return 0;
   });
@@ -89,7 +78,7 @@ const AllPackages = () => {
         id="allpackages"
         className="px-7 sm:px-10 py-24 flex flex-col items-center bg-gradient-to-b from-neutral-800 via-slate-50 to-slate-50"
       >
-        <header className="text-left mb-8 w-full md:max-w-2xl lg:max-w-5xl flex flex-col items-center gap-4">
+        <header className="text-left mb-8 w-full md:max-w-2xl lg:max-w-5xl flex flex-wrap items-center gap-5">
           <span className="self-start">
             <h1 className="text-3xl font-bold md:text-4xl lg:text-5xl text-slate-100">
               Choose Your Package
@@ -98,9 +87,9 @@ const AllPackages = () => {
               All packages
             </p>
           </span>
-          <div className="feature flex flew-wrap self-end items-center gap-5">
+          <div className="feature flex flex-wrap items-center justify-start sm:justify-end gap-5 w-full">
             <form
-              className="w-full max-w-sm"
+              className="w-full max-w-xs"
               onSubmit={(e) => e.preventDefault()}
             >
               <div className="flex">
@@ -116,7 +105,9 @@ const AllPackages = () => {
                     id="search-dropdown"
                     className="rounded-lg block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 border-s-gray-50 border-s-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
                     placeholder="Search Name"
-                    onChange={(e) => {setSearch(e.target.value)}}
+                    onChange={(e) => {
+                      setSearch(e.target.value);
+                    }}
                     required
                   />
                   <button
@@ -143,68 +134,132 @@ const AllPackages = () => {
                 </div>
               </div>
             </form>
-            <span className="flex gap-4 items-center max-w-sm w-full bg-slate-50 rounded-lg py-1 px-3">
-              <p className="text-base md:text-lg font-semibold text-gray-600 text-nowrap">
-                Filter By Type :
-              </p>
-              <form className="w-full">
-                <label htmlFor="underline_select" className="sr-only">
-                  Underline select
-                </label>
-                <select
-                  id="underline_select"
-                  value={filter}
-                  className="block py-2.5 px-0 w-full text-sm text-gray-800 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-500 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer"
-                  onChange={handleChange}
-                >
-                  <option value="">All Type</option>
-                  <option value="longtrip">Long Trip</option>
-                  <option value="opentrip">Open Trip</option>
-                  <option value="privatetrip">Private Trip</option>
-                  <option value="cheaptrip">Cheap Trip</option>
-                </select>
-              </form>
-            </span>
-            <span className="flex gap-4 items-center max-w-sm w-full bg-slate-50 rounded-lg py-1 px-3">
-              <p className="text-base md:text-lg font-semibold text-gray-600 text-nowrap">
-                Sort By :
-              </p>
-              <form className="w-full">
-                <label htmlFor="underline_select" className="sr-only">
-                  Underline select
-                </label>
-                <select
-                  id="underline_select"
-                  value={sortBy}
-                  className="block py-2.5 px-0 w-full text-sm text-gray-800 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-500 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer"
-                  onChange={handleSort}
-                >
-                  <option value="">All Type</option>
-                  <option value="name">Name</option>
-                  <option value="price">Price</option>
-                </select>
-              </form>
-            </span>
-            <span className="flex gap-4 items-center max-w-sm w-full bg-slate-50 rounded-lg py-1 px-3">
-              <p className="text-base md:text-lg font-semibold text-gray-600 text-nowrap">
-                Asc / Desc :
-              </p>
-              <form className="w-full">
-                <label htmlFor="underline_select" className="sr-only">
-                  Underline select
-                </label>
-                <select
-                  id="underline_select"
-                  value={sortType}
-                  className="block py-2.5 px-0 w-full text-sm text-gray-800 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-500 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer"
-                  onChange={handleSortType}
-                >
-                  <option value="">Random</option>
-                  <option value="asc">ascending</option>
-                  <option value="desc">descending</option>
-                </select>
-              </form>
-            </span>
+            <button
+              data-modal-target="top-right-modal"
+              data-modal-toggle="top-right-modal"
+              className="block w-max text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+              type="button"
+            >
+              <i className="fa-solid fa-filter fa-lg mr-2" style={{color: "#f7f7f7"}}></i>
+              Filter
+            </button>
+
+            {/* <!-- Top Right Modal --> */}
+            <div
+              id="top-right-modal"
+              data-modal-placement="top-right"
+              tabIndex="-1"
+              className="fixed top-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full"
+            >
+              <div className="relative w-full max-w-2xl max-h-full">
+                {/* <!-- Modal content --> */}
+                <div className="relative bg-slate-100 rounded-lg shadow ">
+                  {/* <!-- Modal header --> */}
+                  <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                    <h3 className="text-xl font-medium text-gray-900">
+                      Filter & Sort
+                    </h3>
+                    <button
+                      type="button"
+                      className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center "
+                      data-modal-hide="top-right-modal"
+                    >
+                      <svg
+                        className="w-3 h-3"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 14 14"
+                      >
+                        <path
+                          stroke="currentColor"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                        />
+                      </svg>
+                      <span className="sr-only">Close modal</span>
+                    </button>
+                  </div>
+                  {/* <!-- Modal body --> */}
+                  <div className="p-4 md:p-5 space-y-4">
+                    <span className="flex gap-4 items-center max-w-sm w-full bg-slate-50 rounded-lg py-1 px-3">
+                      <p className="text-base md:text-lg font-semibold text-gray-600 text-nowrap">
+                        Filter By Type :
+                      </p>
+                      <form className="w-full">
+                        <label htmlFor="underline_select" className="sr-only">
+                          Underline select
+                        </label>
+                        <select
+                          id="underline_select"
+                          value={filter}
+                          className="block py-2.5 px-0 w-full text-sm text-gray-800 bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-gray-200 peer"
+                          onChange={handleChange}
+                        >
+                          <option value="">All Type</option>
+                          <option value="longtrip">Long Trip</option>
+                          <option value="opentrip">Open Trip</option>
+                          <option value="privatetrip">Private Trip</option>
+                          <option value="cheaptrip">Cheap Trip</option>
+                        </select>
+                      </form>
+                    </span>
+                    <span className="flex gap-4 items-center max-w-sm w-full bg-slate-50 rounded-lg py-1 px-3">
+                      <p className="text-base md:text-lg font-semibold text-gray-600 text-nowrap">
+                        Sort By :
+                      </p>
+                      <form className="w-full">
+                        <label htmlFor="underline_select" className="sr-only">
+                          Underline select
+                        </label>
+                        <select
+                          id="underline_select"
+                          value={sortBy}
+                          className="block py-2.5 px-0 w-full text-sm text-gray-800 bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-gray-200 peer"
+                          onChange={handleSort}
+                        >
+                          <option value="">All Type</option>
+                          <option value="name">Name</option>
+                          <option value="price">Price</option>
+                        </select>
+                      </form>
+                    </span>
+                    <span className="flex gap-4 items-center max-w-sm w-full bg-slate-50 rounded-lg py-1 px-3">
+                      <p className="text-base md:text-lg font-semibold text-gray-600 text-nowrap">
+                        Asc / Desc :
+                      </p>
+                      <form className="w-full">
+                        <label htmlFor="underline_select" className="sr-only">
+                          Underline select
+                        </label>
+                        <select
+                          id="underline_select"
+                          value={sortType}
+                          className="block py-2.5 px-0 w-full text-sm text-gray-800 bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-gray-200 peer"
+                          onChange={handleSortType}
+                        >
+                          <option value="">Random</option>
+                          <option value="asc">ascending</option>
+                          <option value="desc">descending</option>
+                        </select>
+                      </form>
+                    </span>
+                  </div>
+                  {/* <!-- Modal footer --> */}
+                  <div className="flex items-center p-4 md:p-5 space-x-3 rtl:space-x-reverse border-t border-gray-200 rounded-b dark:border-gray-600">
+                    <button
+                      data-modal-hide="top-right-modal"
+                      type="button"
+                      className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    >
+                      Accept
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </header>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 place-content-center justify-items-center w-full md:max-w-2xl lg:max-w-5xl">

@@ -101,13 +101,6 @@ const Detail = () => {
           Back to Home
         </Link>
       </section>
-      {/* <div className="my-24 flex justify-center items-center">
-      <p>{trip.id}</p>
-      <p>{trip.name}</p>
-      <p>{trip.img}</p>
-      <p>{trip.price}</p>
-      <p>{trip.typeTrip}</p>
-    </div> */}
     </>
   );
 };
