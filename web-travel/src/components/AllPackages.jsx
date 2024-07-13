@@ -1,19 +1,16 @@
 import { getTripData } from "../hooks/useTrip";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useDebounce } from "use-debounce";
 
 const AllPackages = () => {
   const trips = getTripData();
   const [filter, setFilter] = useState("");
   const [search, setSearch] = useState("");
+  const [debounceValue] = useDebounce(search, 500);
 
   const handleChange = (event) => {
     setFilter(event.target.value);
-    console.log(event.target.value); // Print nilai baru yang dipilih
-  };
-
-  const handleChangeSearch = (event) => {
-    setSearch(event.target.value);
     console.log(event.target.value); // Print nilai baru yang dipilih
   };
 
@@ -52,9 +49,9 @@ const AllPackages = () => {
     return <div>Loading...</div>;
   }
 
-  const searchPackages = search
+  const searchPackages = debounceValue
     ? trips.filter((pkg) =>
-        pkg.name.toLowerCase().includes(search.toLowerCase())
+        pkg.name.toLowerCase().includes(debounceValue.toLowerCase())
       )
     : trips;
 
@@ -145,7 +142,7 @@ const AllPackages = () => {
                     id="search-dropdown"
                     className="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-e-lg border-s-gray-50 border-s-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
                     placeholder="Search Name"
-                    onChange={handleChangeSearch}
+                    onChange={(e) => {setSearch(e.target.value)}}
                     required
                   />
                   <button
