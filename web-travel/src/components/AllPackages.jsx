@@ -1,18 +1,29 @@
 import { getTripData } from "../hooks/useTrip";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import { useDebounce } from "use-debounce";
 
 const AllPackages = () => {
   const trips = getTripData();
   const [filter, setFilter] = useState("");
   const [search, setSearch] = useState("");
+  const [sortBy, setSortBy] = useState("");
+  const [sortType, setSortType] = useState("asc");
   const [debounceValue] = useDebounce(search, 500);
 
   const handleChange = (event) => {
     setFilter(event.target.value);
     console.log(event.target.value); // Print nilai baru yang dipilih
   };
+
+  const handleSort = (event) => {
+    setSortBy(event.target.value)
+  }
+
+  const handleSortType = (event) => {
+    setSortType(event.target.value)
+    console.log(sortType);
+  }
 
   const spanLabel = (filter) => {
     switch (filter) {
@@ -59,14 +70,27 @@ const AllPackages = () => {
     ? searchPackages.filter((pkg) => pkg.typeTrip === filter)
     : searchPackages;
 
+  const sortedPackages = [...filteredPackages].sort((a, b) => {
+    if (sortBy === "name" && sortType === "asc") {
+      return a.name.localeCompare(b.name);
+    } else if (sortBy === "price" && sortType === "asc") {
+      return a.price - b.price;
+    } else if (sortBy === "name" && sortType === "desc") {
+      return b.name.localeCompare(a.name);
+    } else if (sortBy === "price" && sortType === "desc") {
+      return b.price - a.price;
+    }
+    return 0;
+  });
+
   return (
     <>
       <section
         id="allpackages"
         className="px-7 sm:px-10 py-24 flex flex-col items-center bg-gradient-to-b from-neutral-800 via-slate-50 to-slate-50"
       >
-        <header className="text-left mb-8 w-full md:max-w-2xl lg:max-w-5xl flex flex-wrap items-center gap-4 justify-between">
-          <span>
+        <header className="text-left mb-8 w-full md:max-w-2xl lg:max-w-5xl flex flex-col items-center gap-4">
+          <span className="self-start">
             <h1 className="text-3xl font-bold md:text-4xl lg:text-5xl text-slate-100">
               Choose Your Package
             </h1>
@@ -74,7 +98,7 @@ const AllPackages = () => {
               All packages
             </p>
           </span>
-          <div className="feature flex-col flex md:flex-row items-center gap-5">
+          <div className="feature flex flew-wrap self-end items-center gap-5">
             <form
               className="w-full max-w-sm"
               onSubmit={(e) => e.preventDefault()}
@@ -86,61 +110,11 @@ const AllPackages = () => {
                 >
                   Search
                 </label>
-                <button
-                  id="dropdown-button"
-                  data-dropdown-toggle="dropdown"
-                  className="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-s-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100"
-                  type="button"
-                >
-                  {" "}
-                  Sort by{" "}
-                  <svg
-                    className="w-2.5 h-2.5 ms-2.5"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 10 6"
-                  >
-                    <path
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="m1 1 4 4 4-4"
-                    />
-                  </svg>
-                </button>
-                <div
-                  id="dropdown"
-                  className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
-                >
-                  <ul
-                    className="py-2 text-sm text-gray-700"
-                    aria-labelledby="dropdown-button"
-                  >
-                    <li>
-                      <button
-                        type="button"
-                        className="inline-flex w-full px-4 py-2 hover:bg-gray-100 "
-                      >
-                        Name
-                      </button>
-                    </li>
-                    <li>
-                      <button
-                        type="button"
-                        className="inline-flex w-full px-4 py-2 hover:bg-gray-100 "
-                      >
-                        Price
-                      </button>
-                    </li>
-                  </ul>
-                </div>
                 <div className="relative w-full">
                   <input
                     type="search"
                     id="search-dropdown"
-                    className="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-e-lg border-s-gray-50 border-s-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                    className="rounded-lg block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 border-s-gray-50 border-s-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
                     placeholder="Search Name"
                     onChange={(e) => {setSearch(e.target.value)}}
                     required
@@ -169,7 +143,7 @@ const AllPackages = () => {
                 </div>
               </div>
             </form>
-            <span className="flex gap-4 items-center max-w-xs w-full bg-slate-50 rounded-lg py-1 px-3">
+            <span className="flex gap-4 items-center max-w-sm w-full bg-slate-50 rounded-lg py-1 px-3">
               <p className="text-base md:text-lg font-semibold text-gray-600 text-nowrap">
                 Filter By Type :
               </p>
@@ -191,11 +165,51 @@ const AllPackages = () => {
                 </select>
               </form>
             </span>
+            <span className="flex gap-4 items-center max-w-sm w-full bg-slate-50 rounded-lg py-1 px-3">
+              <p className="text-base md:text-lg font-semibold text-gray-600 text-nowrap">
+                Sort By :
+              </p>
+              <form className="w-full">
+                <label htmlFor="underline_select" className="sr-only">
+                  Underline select
+                </label>
+                <select
+                  id="underline_select"
+                  value={sortBy}
+                  className="block py-2.5 px-0 w-full text-sm text-gray-800 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-500 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer"
+                  onChange={handleSort}
+                >
+                  <option value="">All Type</option>
+                  <option value="name">Name</option>
+                  <option value="price">Price</option>
+                </select>
+              </form>
+            </span>
+            <span className="flex gap-4 items-center max-w-sm w-full bg-slate-50 rounded-lg py-1 px-3">
+              <p className="text-base md:text-lg font-semibold text-gray-600 text-nowrap">
+                Asc / Desc :
+              </p>
+              <form className="w-full">
+                <label htmlFor="underline_select" className="sr-only">
+                  Underline select
+                </label>
+                <select
+                  id="underline_select"
+                  value={sortType}
+                  className="block py-2.5 px-0 w-full text-sm text-gray-800 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-500 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer"
+                  onChange={handleSortType}
+                >
+                  <option value="">Random</option>
+                  <option value="asc">ascending</option>
+                  <option value="desc">descending</option>
+                </select>
+              </form>
+            </span>
           </div>
         </header>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 place-content-center justify-items-center w-full md:max-w-2xl lg:max-w-5xl">
-          {filteredPackages.length > 0 &&
-            filteredPackages.map((trip) => (
+          {sortedPackages.length > 0 &&
+            sortedPackages.map((trip) => (
               <div
                 key={trip.id}
                 className="flex flex-col p-4 rounded-lg shadow w-full max-w-80text-neutral-800 bg-slate-50"
