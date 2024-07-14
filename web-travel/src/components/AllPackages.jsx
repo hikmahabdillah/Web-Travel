@@ -8,7 +8,6 @@ import { useDebounce } from "use-debounce";
 const AllPackages = () => {
   const trips = getTripData();
   const { filter, setFilter } = useContext(FilterTrip);
-  console.log("filter : ", filter);
 
   const [search, setSearch] = useState("");
   const [sortBy, setSortBy] = useState("");
