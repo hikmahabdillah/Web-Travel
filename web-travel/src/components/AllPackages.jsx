@@ -117,9 +117,9 @@ const AllPackages = () => {
             {isModalOpen && (
             <div
               id="top-right-modal"
-              className="w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full"
+              className="w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full fixed top-0 right-0 z-50"
             >
-              <div className="fixed top-5 right-5 z-50  w-full max-w-2xl max-h-full">
+              <div className="sm:absolute sm:top-5 sm:right-5 w-full max-w-2xl max-h-full">
                 {/* <!-- Modal content --> */}
                 <div className="relative bg-slate-100 rounded-lg shadow ">
                   {/* <!-- Modal header --> */}
