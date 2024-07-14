@@ -10,7 +10,6 @@ const Navbar = () => {
     if(navMobile){
       navMobile.classList.toggle("hidden");
     }
-    setVisible(!visible);
   }
 
   useEffect(() => {
@@ -53,6 +52,7 @@ const Navbar = () => {
             />
           </a>
           <button
+            onClick={navMobileHandle}
             data-collapse-toggle="navbar-dropdown"
             type="button"
             className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-slate-500 rounded-lg md:hidden bg-slate-100 focus:outline-none focus:ring-2 focus:ring-slate-200"
@@ -83,7 +83,7 @@ const Navbar = () => {
             <ul className={`bg-neutral-800 md:bg-transparent flex flex-col items-center font-medium p-4 md:p-0 border border-gray-100 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 text-slate-100 transition-all duration-700 rounded-lg ${
               visible ? "translate-y-0" : "-translate-y-full"
             }`}>
-              <li onClick={navMobileHandle}>
+              <li onClick={() => {setVisible(!visible); setTimeout(()=>{navMobileHandle();}, 700)}}>
                 <a
                   href="#"
                   className="block py-2 px-3 text-white hover:text-blue-700  rounded md:bg-transparent md:p-0"
@@ -92,7 +92,7 @@ const Navbar = () => {
                   Home
                 </a>
               </li>
-              <li onClick={navMobileHandle}>
+              <li onClick={() => {setVisible(!visible); setTimeout(()=>{navMobileHandle();}, 700)}}>
                 <a
                   href="#services"
                   className="block py-2 px-3 rounded  md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
@@ -100,7 +100,7 @@ const Navbar = () => {
                   Services
                 </a>
               </li>
-              <li onClick={navMobileHandle}>
+              <li onClick={() => {setVisible(!visible); setTimeout(()=>{navMobileHandle();}, 700)}}>
                 <a
                   href="#packages"
                   className="block py-2 px-3 rounded  md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
@@ -108,8 +108,8 @@ const Navbar = () => {
                   Packages
                 </a>
               </li>
-              <li onClick={navMobileHandle}>
-                <a
+              <li onClick={() => {setVisible(!visible); setTimeout(()=>{navMobileHandle();}, 700)}}>
+              <a
                   href="#footer"
                   className="block py-2 px-3 rounded  md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
                 >
