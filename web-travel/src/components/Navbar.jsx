@@ -3,6 +3,15 @@ import { useState, useEffect } from "react";
 const Navbar = () => {
   const [prevScrollPos, setPrevScrollPos] = useState(window.scrollY);
   const [visible, setVisible] = useState(true);
+  // const [hidden, setHidden] = useState(true);
+
+  const navMobileHandle = () => {
+   const navMobile = document.querySelector(".nav-mobile");
+    if(navMobile){
+      navMobile.classList.toggle("hidden");
+    }
+    setVisible(!visible);
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -68,39 +77,41 @@ const Navbar = () => {
             </svg>
           </button>
           <div
-            className="hidden w-full md:block md:w-auto"
+            className="nav-mobile hidden w-full absolute top-[90px] right-0 md:static md:block md:w-auto transition-all duration-700 rounded-lg"
             id="navbar-dropdown"
           >
-            <ul className="flex flex-col items-center font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 text-slate-100">
-              <li>
+            <ul className={`bg-neutral-800 md:bg-transparent flex flex-col items-center font-medium p-4 md:p-0 border border-gray-100 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 text-slate-100 transition-all duration-700 rounded-lg ${
+              visible ? "translate-y-0" : "-translate-y-full"
+            }`}>
+              <li onClick={navMobileHandle}>
                 <a
                   href="#"
-                  className="block py-2 px-3 text-white bg-blue-700 hover:text-blue-700  rounded md:bg-transparent md:p-0"
+                  className="block py-2 px-3 text-white hover:text-blue-700  rounded md:bg-transparent md:p-0"
                   aria-current="page"
                 >
                   Home
                 </a>
               </li>
-              <li>
+              <li onClick={navMobileHandle}>
                 <a
                   href="#services"
-                  className="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
+                  className="block py-2 px-3 rounded  md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
                 >
                   Services
                 </a>
               </li>
-              <li>
+              <li onClick={navMobileHandle}>
                 <a
                   href="#packages"
-                  className="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
+                  className="block py-2 px-3 rounded  md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
                 >
                   Packages
                 </a>
               </li>
-              <li>
+              <li onClick={navMobileHandle}>
                 <a
                   href="#footer"
-                  className="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
+                  className="block py-2 px-3 rounded  md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
                 >
                   Contact
                 </a>
