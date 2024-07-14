@@ -1,0 +1,51 @@
+[
+  {
+    "id" : 1,
+    "name" : "Phone",
+    "link" : "#",
+    "content" : "+6282374727384",
+    "img" : "/img/Phone.png"
+  },
+  {
+    "id" : 2,
+    "name" : "Email",
+    "link" : "#",
+    "content" : "jirjatsingh@gmail.com",
+    "img" : "/img/Gmail.png"
+  },
+  {
+    "id" : 3,
+    "name" : "Location",
+    "link" : "#",
+    "content" : "East Java, Indonesia",
+    "img" : "/img/Location.png"
+  },
+  {
+    "id" : 4,
+    "name" : "Facebook",
+    "link" : "#",
+    "content" : "aldrin__",
+    "img" : "fa-brands fa-facebook fa-2xl text-slate-50"
+  },
+  {
+    "id" : 5,
+    "name" : "Youtube",
+    "link" : "#",
+    "content" : "aldrin__",
+    "img" : "fa-brands fa-youtube fa-2xl text-slate-50"
+  },
+  {
+    "id" : 6,
+    "name" : "Instagram",
+    "link" : "#",
+    "content" : "aldrin__",
+    "img" : "fa-brands fa-instagram fa-2xl text-slate-50"
+  },
+  {
+    "id" : 7,
+    "name" : "WhatsApp",
+    "link" : "#",
+    "content" : "+6282374727384",
+    "img" : "fa-brands fa-whatsapp fa-2xl text-slate-50"
+  }
+]
