@@ -4,7 +4,7 @@ const Footer = () => {
   const links = getLinkData();
   return (
     <>
-      <footer className="flex flex-col p-10 pb-3 bg-[#162133]">
+      <footer id="footer" className="flex flex-col p-10 pb-3 bg-[#162133]">
         <header className="text-slate-50 mb-8">
           <h1 className="text-3xl font-bold md:text-4xl lg:text-5xl mb-5">
             Contact Us

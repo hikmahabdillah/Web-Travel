@@ -42,9 +42,6 @@ const Navbar = () => {
               className="h-14 w-full object-cover object-center"
               alt="Flowbite Logo"
             />
-            {/* <span className="self-center text-2xl font-semibold whitespace-nowrap">
-              Travellin
-            </span> */}
           </a>
           <button
             data-collapse-toggle="navbar-dropdown"
@@ -85,66 +82,8 @@ const Navbar = () => {
                 </a>
               </li>
               <li>
-                <button
-                  id="dropdownNavbarLink"
-                  data-dropdown-toggle="dropdownNavbar"
-                  className="flex items-center justify-between w-full py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 hover:text-blue-700 md:p-0 md:w-auto"
-                >
-                  Dropdown{" "}
-                  <svg
-                    className="w-2.5 h-2.5 ms-2.5"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 10 6"
-                  >
-                    <path
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="m1 1 4 4 4-4"
-                    />
-                  </svg>
-                </button>
-                {/* <!-- Dropdown menu --> */}
-                <div
-                  id="dropdownNavbar"
-                  className="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44"
-                >
-                  <ul
-                    className="py-2 text-sm text-gray-700"
-                    aria-labelledby="dropdownLargeButton"
-                  >
-                    <li>
-                      <a href="#" className="block px-4 py-2 hover:bg-gray-100">
-                        Dashboard
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="block px-4 py-2 hover:bg-gray-100">
-                        Settings
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="block px-4 py-2 hover:bg-gray-100">
-                        Earnings
-                      </a>
-                    </li>
-                  </ul>
-                  <div className="py-1">
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                    >
-                      Sign out
-                    </a>
-                  </div>
-                </div>
-              </li>
-              <li>
                 <a
-                  href="#"
+                  href="#services"
                   className="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
                 >
                   Services
@@ -152,15 +91,15 @@ const Navbar = () => {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="#packages"
                   className="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
                 >
-                  Pricing
+                  Packages
                 </a>
               </li>
               <li>
                 <a
-                  href="#"
+                  href="#footer"
                   className="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
                 >
                   Contact
