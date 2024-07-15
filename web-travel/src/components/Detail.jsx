@@ -1,5 +1,5 @@
 import { getDetailTrip } from "../hooks/useTrip";
-import spanLabel from "./TripLabel";
+import spanLabel from "./layout/TripLabel";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";

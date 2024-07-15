@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { getTripData } from "../hooks/useTrip";
-import spanLabel from "./TripLabel";
+import spanLabel from "./layout/TripLabel";
 import { FilterTrip } from "../context/FilterTrip";
 import { Link } from "react-router-dom";
 
