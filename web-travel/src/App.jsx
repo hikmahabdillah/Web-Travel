@@ -8,7 +8,7 @@ import ServicesSection from "./components/ServicesSection";
 function App() {
   return (
     <>
-      <Navbar />
+      <Navbar isOtherPage={false}/>
       <HeroSection />
       <ServicesSection/>
       <PackagesSection />

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({isOtherPage}) => {
   const [prevScrollPos, setPrevScrollPos] = useState(window.scrollY);
   const [visible, setVisible] = useState(true);
   // const [hidden, setHidden] = useState(true);
@@ -33,6 +33,18 @@ const Navbar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [prevScrollPos, visible]);
+
+  const LinkItem = ({ to, href, children }) => {
+    return isOtherPage ? (
+      <Link to={to} className="block py-2 px-3 text-white hover:text-blue-700 rounded md:bg-transparent md:p-0">
+        {children}
+      </Link>
+    ) : (
+      <a href={href} className="block py-2 px-3 text-white hover:text-blue-700 rounded md:bg-transparent md:p-0">
+        {children}
+      </a>
+    );
+  };
 
   return (
     <>
@@ -84,34 +96,53 @@ const Navbar = () => {
             <ul className={`bg-neutral-800 md:bg-transparent flex flex-col items-center font-medium p-4 md:p-0 border border-gray-100 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 text-slate-100 transition-all duration-700 rounded-lg ${
               visible ? "translate-y-0" : "-translate-y-full"
             }`}>
-              <li onClick={() => {setVisible(!visible); setTimeout(()=>{navMobileHandle();}, 700)}}>
-                <Link to="/#"
-                  className="block py-2 px-3 text-white hover:text-blue-700  rounded md:bg-transparent md:p-0"
-                  aria-current="page"
-                >
+              <li
+                onClick={() => {
+                  setVisible(!visible);
+                  setTimeout(() => {
+                    navMobileHandle();
+                  }, 700);
+                }}
+              >
+                <LinkItem to="/#" href="#">
                   Home
-                </Link>
+                </LinkItem>
               </li>
-              <li onClick={() => {setVisible(!visible); setTimeout(()=>{navMobileHandle();}, 700)}}>
-                <Link to="/#services"
-                  className="block py-2 px-3 rounded  md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
-                >
+              <li
+                onClick={() => {
+                  setVisible(!visible);
+                  setTimeout(() => {
+                    navMobileHandle();
+                  }, 700);
+                }}
+              >
+                <LinkItem to="/#services" href="#services">
                   Services
-                </Link>
+                </LinkItem>
               </li>
-              <li onClick={() => {setVisible(!visible); setTimeout(()=>{navMobileHandle();}, 700)}}>
-                <Link to="/#packages"
-                  className="block py-2 px-3 rounded  md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
-                >
+              <li
+                onClick={() => {
+                  setVisible(!visible);
+                  setTimeout(() => {
+                    navMobileHandle();
+                  }, 700);
+                }}
+              >
+                <LinkItem to="/#packages" href="#packages">
                   Packages
-                </Link>
+                </LinkItem>
               </li>
-              <li onClick={() => {setVisible(!visible); setTimeout(()=>{navMobileHandle();}, 700)}}>
-              <Link to="/#footer"
-                  className="block py-2 px-3 rounded  md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
-                >
+              <li
+                onClick={() => {
+                  setVisible(!visible);
+                  setTimeout(() => {
+                    navMobileHandle();
+                  }, 700);
+                }}
+              >
+                <LinkItem to="/#footer" href="#footer">
                   Contact
-                </Link>
+                </LinkItem>
               </li>
             </ul>
           </div>

@@ -5,7 +5,7 @@ import Detail from "./components/Detail";
 function DetailPackages() {
   return (
     <>
-      <Navbar />
+      <Navbar isOtherPage={true}/>
       <Detail/>
       <Footer/>
     </>

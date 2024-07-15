@@ -5,7 +5,7 @@ import AllPackages from "./components/AllPackages";
 function AllPackagesPage() {
   return (
     <>
-      <Navbar />
+      <Navbar isOtherPage={true}/>
       <AllPackages/>
       <Footer/>
     </>
