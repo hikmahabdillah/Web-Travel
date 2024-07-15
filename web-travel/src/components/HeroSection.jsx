@@ -11,7 +11,7 @@ import {
   Navigation,
   Autoplay,
 } from "swiper/modules";
-import {getTripData} from "../hooks/useTrip";
+import { getTripData } from "../hooks/useTrip";
 
 const Component = ({ children, imgState }) => {
   return (
@@ -77,21 +77,15 @@ const ImageSlider = ({ setCurrentImageSrc }) => {
 
   useEffect(() => {
     if (swiper) {
-      setSwiper(swiper);
       swiper.on("slideChange", () => {
-        const currentSlide = swiper.el.querySelector(".swiper-slide-active");
-        if (currentSlide) {
-          const img = currentSlide.querySelector("img");
+        const currentSlide = swiper.slides[swiper.activeIndex];
+        const img = currentSlide.querySelector("img");
+        if (img) {
           setCurrentImageSrc(img.src);
-          // console.log(img.alt);
         }
       });
     }
   }, [swiper, setCurrentImageSrc]);
-
-  // useEffect(()=> {
-  //   handleSlideChange();
-  // }, [swiper])
 
   return (
     <div className="hidden md:flex md:items-center md:justify-center md:w-1/2">
@@ -99,7 +93,7 @@ const ImageSlider = ({ setCurrentImageSrc }) => {
         effect={"coverflow"}
         grabCursor={true}
         centeredSlides={true}
-        loop={true}
+        loop={trips.length >= 5}
         slidesPerView={"auto"}
         coverflowEffect={{
           rotate: 0,
@@ -114,10 +108,7 @@ const ImageSlider = ({ setCurrentImageSrc }) => {
         }}
         modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
         className="swiper_container"
-        // onS={(swiper) => setSwiper(swiper)}
-        onSlideChange={(swiper) => {
-          setSwiper(swiper);
-        }}
+        onSwiper={setSwiper}
       >
         {trips.length > 0 &&
           trips.slice(0, 5).map((trip) => (
