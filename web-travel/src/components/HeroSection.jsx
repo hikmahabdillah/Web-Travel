@@ -42,8 +42,7 @@ const TextHeader = () => {
         <br /> Your Story
       </h1>
       <p className="mb-8 text-lg font-normal text-gray-100 lg:text-xl">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste blanditiis
-        nulla ea magnam corporis. Mollitia aperiam labore aspernatur eligendi.
+      A trusted travel service ready to take you to explore the world. We offer various travel packages with experienced guides and professional services. Make your vacation dreams come true with us with ease and comfort.
       </p>
 
       <a

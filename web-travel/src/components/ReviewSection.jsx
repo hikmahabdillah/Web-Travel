@@ -47,23 +47,8 @@ const ReviewSection = () => {
             </p>
           </footer>
           <p className="mb-2 text-neutral-800">
-            This is my third Invicta Pro Diver. They are just fantastic value
-            for money. This one arrived yesterday and the first thing I did was
-            set the time, popped on an identical strap from another Invicta and
-            went in the shower with it to test the waterproofing.... No
-            problems.
+          Very professional and responsive service. We felt very taken care of during our trip to Yogyakarta. The tour guide was very friendly and helped us explore beautiful places that not many people know about.
           </p>
-          <p className="mb-3 text-neutral-800">
-            It is obviously not the same build quality as those very expensive
-            watches. But that is like comparing a Citroën to a Ferrari. This
-            watch was well under £100! An absolute bargain.
-          </p>
-          <a
-            href="#"
-            className="block mb-1 text-sm font-medium text-blue-600 hover:underline dark:text-blue-500"
-          >
-            Read more
-          </a>
         </article>
       </section>
     </>

@@ -12,32 +12,28 @@ const ServicesSection = () => {
           <div className="text-4xl mb-4">👤</div>
           <h2 className="text-xl font-semibold mb-2">Best Tour Guide</h2>
           <p>
-            Guide paham medan gunung, jalur, geografis, sampai cuaca atau
-            undang-undang yang berlaku di taman nasional
+          The best tour guides have an in-depth understanding of the mountain terrain, trekking trails, geography, and regulations that apply in national parks.
           </p>
         </div>
         <div className="flex flex-col items-center text-center p-4 rounded-lg shadow w-full max-w-64">
           <div className="text-4xl mb-4">📋</div>
           <h2 className="text-xl font-semibold mb-2">Lots of Choices</h2>
           <p>
-            Guide paham medan gunung, jalur, geografis, sampai cuaca atau
-            undang-undang yang berlaku di taman nasional
+          We offer a wide selection of destinations and travel packages to suit your preferences and needs.
           </p>
         </div>
         <div className="flex flex-col items-center text-center p-4 rounded-lg shadow w-full max-w-64">
           <div className="text-4xl mb-4">❤️</div>
           <h2 className="text-xl font-semibold mb-2">Secure & Trusted</h2>
           <p>
-            Guide paham medan gunung, jalur, geografis, sampai cuaca atau
-            undang-undang yang berlaku di taman nasional
+          We put safety and trust in every detail of your trip. With proven and trusted services, you can explore the world with peace of mind.
           </p>
         </div>
         <div className="flex flex-col items-center text-center p-4 rounded-lg shadow w-full max-w-64">
           <div className="text-4xl mb-4">🗂</div>
           <h2 className="text-xl font-semibold mb-2">Easy Booking</h2>
           <p>
-            Guide paham medan gunung, jalur, geografis, sampai cuaca atau
-            undang-undang yang berlaku di taman nasional
+          Our easy and fast booking process ensures you can plan your vacation without a hitch. Discover an unforgettable adventure with our professional and reliable services!
           </p>
         </div>
       </div>
