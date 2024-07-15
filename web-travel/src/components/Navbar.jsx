@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [prevScrollPos, setPrevScrollPos] = useState(window.scrollY);
@@ -84,37 +85,33 @@ const Navbar = () => {
               visible ? "translate-y-0" : "-translate-y-full"
             }`}>
               <li onClick={() => {setVisible(!visible); setTimeout(()=>{navMobileHandle();}, 700)}}>
-                <a
-                  href="#"
+                <Link to="/#"
                   className="block py-2 px-3 text-white hover:text-blue-700  rounded md:bg-transparent md:p-0"
                   aria-current="page"
                 >
                   Home
-                </a>
+                </Link>
               </li>
               <li onClick={() => {setVisible(!visible); setTimeout(()=>{navMobileHandle();}, 700)}}>
-                <a
-                  href="#services"
+                <Link to="/#services"
                   className="block py-2 px-3 rounded  md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
                 >
                   Services
-                </a>
+                </Link>
               </li>
               <li onClick={() => {setVisible(!visible); setTimeout(()=>{navMobileHandle();}, 700)}}>
-                <a
-                  href="#packages"
+                <Link to="/#packages"
                   className="block py-2 px-3 rounded  md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
                 >
                   Packages
-                </a>
+                </Link>
               </li>
               <li onClick={() => {setVisible(!visible); setTimeout(()=>{navMobileHandle();}, 700)}}>
-              <a
-                  href="#footer"
+              <Link to="/#footer"
                   className="block py-2 px-3 rounded  md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
                 >
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
