@@ -61,16 +61,23 @@ const AllPackages = () => {
             </p>
           </span>
           <div className="feature flex flex-wrap items-center justify-start sm:justify-end gap-5 w-full">
-           <SearchForm setSearch={setSearch}/>
-            <FilterModal toggleModal={toggleModal} isModalOpen={isModalOpen} filter={filter} handleChange={handleChange} sortBy={sortBy} handleSort={handleSort} sortType={sortType} handleSortType={handleSortType}/>
+            <SearchForm setSearch={setSearch} />
+            <FilterModal
+              toggleModal={toggleModal}
+              isModalOpen={isModalOpen}
+              filter={filter}
+              handleChange={handleChange}
+              sortBy={sortBy}
+              handleSort={handleSort}
+              sortType={sortType}
+              handleSortType={handleSortType}
+            />
           </div>
         </header>
-        {!trips && (
-          <div>
-            <h2 className="text-2xl text-neutral-800 font-semibold">Loading...</h2>
-          </div>
-        )}
-    <ListAllPackages sortedPackages={sortedPackages} spanLabel={spanLabel}/>
+        <ListAllPackages
+          sortedPackages={sortedPackages}
+          spanLabel={spanLabel}
+        />
         <Link
           to="/#packages"
           className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-neutral-800 rounded-lg bg-slate-50 border-2 border-neutral-800 hover:bg-slate-300 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900 w-full max-w-40 mt-8 text-nowrap"

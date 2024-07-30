@@ -5,9 +5,8 @@ import AllPackages from "./components/AllPackages";
 function AllPackagesPage() {
   return (
     <>
-      <Navbar isOtherPage={true}/>
-      <AllPackages/>
-      <Footer/>
+      <Navbar isOtherPage={true} />
+      <AllPackages />
     </>
   );
 }
