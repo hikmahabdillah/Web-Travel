@@ -34,14 +34,14 @@ const Detail = () => {
         </header>
         <div
           key={trip.id}
-          className="flex flex-col md:flex-row gap-7 p-4 rounded-lg shadow w-full max-w-5xl text-neutral-800 bg-slate-50 "
+          className="flex flex-col lg:flex-row gap-7 p-4 rounded-lg shadow w-full max-w-5xl text-neutral-800 bg-slate-50 "
         >
           <img
             src={trip.img}
             alt={trip.name}
-            className="object-cover object-center h-full max-h-[34rem] w-full md:w-1/2 rounded-md mb-2"
+            className="object-cover object-center h-full max-h-[34rem] w-full lg:w-1/2 rounded-md mb-2"
           />
-          <div className="py-5 detail flex flex-col w-full flex-1 self-center overflow-hidden	">
+          <div className="lg:py-5 detail flex flex-col w-full flex-1 self-center overflow-hidden	">
             {spanLabel(trip.typeTrip)}
             <h2 className="text-4xl font-semibold">{trip.name}</h2>
             <p className="text-lg">{trip.location}</p>
