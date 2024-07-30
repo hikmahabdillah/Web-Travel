@@ -3,10 +3,13 @@ import spanLabel from "./layout/TripLabel";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import GalleryModal from "./layout/GalleryModal";
 
 const Detail = () => {
   const { id } = useParams();
   const [trip, setTrip] = useState(null);
+  const [isModal, setIsModal] = useState(false);
+  const [gallery, setGallery] = useState("");
 
   useEffect(() => {
     const fetchDetailTrip = async () => {
@@ -23,6 +26,7 @@ const Detail = () => {
 
   return (
     <>
+      {isModal && <GalleryModal image={gallery} Click={() => setIsModal(!isModal)}/>}
       <section
         id="detailPackages"
         className="px-7 sm:px-10 py-24 flex flex-col items-center bg-gradient-to-b from-neutral-800 via-slate-50 to-slate-50"
@@ -68,7 +72,8 @@ const Detail = () => {
                 <img
                   src={image}
                   key={index}
-                  className="min-w-52 h-32 rounded-xl object-cover object-center"
+                  className="min-w-52 h-32 rounded-xl object-cover object-center hover:opacity-65 duration-300 cursor-pointer"
+                  onClick={() => {setIsModal(!isModal); setGallery(image)}}
                 ></img>
               ))}
             </span>
