@@ -7,18 +7,22 @@ import NotFoundPage from "./NotFoundPage.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import FilterTripContextProvider from "./context/FilterTrip";
 import "./index.css";
+import LoginPage from "./LoginPage.jsx";
+import RegisterPage from "./RegisterPage.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-	<React.StrictMode>
-		<FilterTripContextProvider>
-			<BrowserRouter>
-				<Routes>
-					<Route path="/" element={<App />} />
-					<Route path="/all-package" element={<AllPackagesPage />} />
-					<Route path="/detail-package/:id" element={<DetailPackages />} />
-					<Route path="*" element={<NotFoundPage />} />
-				</Routes>
-			</BrowserRouter>
-		</FilterTripContextProvider>
-	</React.StrictMode>,
+  <React.StrictMode>
+    <FilterTripContextProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/all-package" element={<AllPackagesPage />} />
+          <Route path="/detail-package/:id" element={<DetailPackages />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </BrowserRouter>
+    </FilterTripContextProvider>
+  </React.StrictMode>
 );
