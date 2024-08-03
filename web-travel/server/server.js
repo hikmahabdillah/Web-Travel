@@ -3,6 +3,7 @@ import express from "express";
 import dotenv from "dotenv";
 import usersRouter from "./routes/users.js";
 import mongoose from "mongoose";
+import cors from 'cors';
 
 dotenv.config();
 const usersRoutes = usersRouter;
@@ -11,6 +12,7 @@ const usersRoutes = usersRouter;
 const app = express();
 
 // middleware
+app.use(cors());
 app.use(express.json());
 app.use((req, res, next) => {
   console.log(req.path, req.method);

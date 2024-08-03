@@ -1,6 +1,49 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Register() {
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    
+    const users = {username, email, password};
+    try {
+      const response = await fetch('http://localhost:4000/api/users', {
+        method: 'POST',
+        body: JSON.stringify(users),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+
+      const json = await response.json();
+
+      if (!response.ok) {
+        if (response.status === 400) {
+          setError("Email or username already exists.");
+        } else {
+          setError(json.error || "An error occurred.");
+        }
+      } else {
+        setError(null);
+        setUsername("");
+        setEmail("");
+        setPassword("");
+        event.target.reset();
+        navigate("/login"); // Redirect to login page
+        console.log('Registration success', json);
+      }
+    } catch (error) {
+      setError("Network Error: Please check your connection.");
+      console.error("Network error:", error);
+    }
+
+  };
   return (
     <div className="flex min-h-screen items-center justify-center">
       <div className="flex w-full h-full justify-center px-6 my-12">
@@ -19,8 +62,9 @@ export default function Register() {
             <h3 className="pt-4 font-bold text-2xl text-center text-neutral-800">
               Create An Account!
             </h3>
+            {error && <p className="text-red-600">{error}</p>}
             {/* {error !== '' && <p className="text-red-600">{error}</p>} */}
-            <form className="w-full px-8 pt-6 mb-4 bg-white rounded">
+            <form className="w-full px-8 pt-6 mb-4 bg-white rounded" onSubmit={handleSubmit}>
               <div className="mb-4">
                 <label
                   className="block mb-2 text-sm font-bold text-gray-700"
@@ -34,6 +78,8 @@ export default function Register() {
                   name="username"
                   type="text"
                   placeholder="Username"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
                 />
               </div>
               <div className="mb-4">
@@ -49,6 +95,8 @@ export default function Register() {
                   name="email"
                   type="email"
                   placeholder="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               <div className="mb-4">
@@ -64,6 +112,8 @@ export default function Register() {
                   name="password"
                   type="password"
                   placeholder="******************"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
                 {/* <p className="text-xs italic text-red-500">Please choose a password.</p> */}
               </div>

@@ -1,3 +1,4 @@
+import bcrypt from 'bcrypt';
 import Users from "../models/Users.js";
 
 // GET ALL USERS
@@ -8,7 +9,7 @@ export const getAllUsers = async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
-}
+};
 
 // GET SINGLE USER
 export const getUser = async (req, res) => {
@@ -22,19 +23,51 @@ export const getUser = async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
-}
+};
 
 // CREATE A NEW USER
 export const createUser = async (req, res) => {
   const { username, email, password } = req.body;
   try {
-    const newUser = new Users({ username, email, password });
+    // Check if the username or email already exists
+    const existingUser = await Users.findOne({ $or: [{ username }, { email }] });
+    if (existingUser) {
+      return res
+        .status(400)
+        .json({ error: "Email or username already exists" });
+    }
+
+    // Hash the password
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    const newUser = new Users({ username, email, password: hashedPassword });
     await newUser.save();
     res.status(201).json(newUser);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
-}
+};
+
+// HANDLE LOGIN USER
+export const loginUser = async (req, res) => {
+  const { email, password } = req.body;
+  try {
+    const user = await Users.findOne({ email });
+    if (!user) {
+      return res.status(400).json({ error: "Invalid email or password" });
+    }
+
+    // Compare hashed password with the provided password
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+      return res.status(400).json({ error: "Invalid email or password" });
+    }
+
+    res.status(200).json({ message: "Login successful" });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
 
 // DELETE A USER
 export const deleteUser = async (req, res) => {
@@ -48,7 +81,7 @@ export const deleteUser = async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
-}
+};
 
 // UPDATE A USER
 export const updateUser = async (req, res) => {
@@ -67,4 +100,4 @@ export const updateUser = async (req, res) => {
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
-}
+};
