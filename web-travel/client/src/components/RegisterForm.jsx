@@ -36,7 +36,7 @@ export default function Register() {
         setPassword("");
         event.target.reset();
         navigate("/login"); // Redirect to login page
-        console.log('Registration success', json);
+        console.log('Registration success');
       }
     } catch (error) {
       setError("Network Error: Please check your connection.");
@@ -56,14 +56,13 @@ export default function Register() {
               backgroundImage:
                 "url('https://i.pinimg.com/564x/2f/11/e5/2f11e51cf34eceaf0061caf65c8b19ae.jpg')",
             }}
-          ></div>
+          />
           {/* <!-- Col --> */}
           <div className="w-full h-full flex flex-col justify-center items-center lg:w-1/2 bg-white p-5 rounded-xl lg:rounded-l-none">
             <h3 className="pt-4 font-bold text-2xl text-center text-neutral-800">
               Create An Account!
             </h3>
             {error && <p className="text-red-600">{error}</p>}
-            {/* {error !== '' && <p className="text-red-600">{error}</p>} */}
             <form className="w-full px-8 pt-6 mb-4 bg-white rounded" onSubmit={handleSubmit}>
               <div className="mb-4">
                 <label
@@ -115,21 +114,13 @@ export default function Register() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
-                {/* <p className="text-xs italic text-red-500">Please choose a password.</p> */}
               </div>
-              {/* <div className="mb-4">
-              <input className="mr-2 leading-tight" type="checkbox" id="checkbox_id" />
-              <label className="text-sm text-neutral-800" htmlFor="checkbox_id">
-                Remember Me
-              </label>
-            </div> */}
               <div className="mb-6 text-center">
                 <button
                   className="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
                   type="submit"
                 >
                   Sign Up
-                  {/* {isLoading ? "Loading..." : "Sign Up"} */}
                 </button>
               </div>
               <hr className="mb-6 border-t" />

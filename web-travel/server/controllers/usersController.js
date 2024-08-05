@@ -1,5 +1,10 @@
 import bcrypt from 'bcrypt';
 import Users from "../models/Users.js";
+import jwt from 'jsonwebtoken';
+
+const createToken = (_id) => {
+  return jwt.sign({_id}, process.env.JWT_SECRET, { expiresIn: '3d' })
+}
 
 // GET ALL USERS
 export const getAllUsers = async (req, res) => {
@@ -42,7 +47,12 @@ export const createUser = async (req, res) => {
 
     const newUser = new Users({ username, email, password: hashedPassword });
     await newUser.save();
-    res.status(201).json(newUser);
+
+        // create a token
+        const token = createToken(newUser._id)
+        console.log(token)
+
+    res.status(201).json({user: newUser, token});
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
@@ -63,7 +73,9 @@ export const loginUser = async (req, res) => {
       return res.status(400).json({ error: "Invalid email or password" });
     }
 
-    res.status(200).json({ message: "Login successful" });
+    const token = createToken(user._id)
+
+    res.status(200).json({email: user.email, username: user.username, token, message: "Login successful"});
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

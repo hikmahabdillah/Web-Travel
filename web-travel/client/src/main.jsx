@@ -6,12 +6,14 @@ import AllPackagesPage from "./AllPackagesPage.jsx";
 import NotFoundPage from "./NotFoundPage.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import FilterTripContextProvider from "./context/FilterTrip";
+import {AuthContextProvider} from "./context/AuthContext";
 import "./index.css";
 import LoginPage from "./LoginPage.jsx";
 import RegisterPage from "./RegisterPage.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
+    <AuthContextProvider>
     <FilterTripContextProvider>
       <BrowserRouter>
         <Routes>
@@ -24,5 +26,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         </Routes>
       </BrowserRouter>
     </FilterTripContextProvider>
+    </AuthContextProvider>
   </React.StrictMode>
 );

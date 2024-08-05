@@ -24,8 +24,6 @@ export default function Login() {
 
       if (!response.ok) {
         if (response.status === 400) {
-          console.log(email)
-          console.log(password)
           setError("invalid email or password");
         } else {
           setError(json.error || "An error occurred.");
@@ -36,7 +34,7 @@ export default function Login() {
         setPassword("");
         event.target.reset();
         navigate("/"); // Redirect to home page
-        console.log('Registration success', json);
+        console.log('Login success');
       }
     } catch (error) {
       setError("Network Error: Please check your connection.");
@@ -56,7 +54,7 @@ export default function Login() {
               backgroundImage:
                 "url('https://i.pinimg.com/564x/6b/a4/cc/6ba4cc76c17b74c9e6e3f3719ad59bc8.jpg')",
             }}
-          ></div>
+          />
           {/* <!-- Col --> */}
           <div className="w-full h-full flex flex-col justify-center items-center lg:w-1/2 bg-white p-5 rounded-r-xl lg:rounded-l-none">
             <h3 className="pt-4 font-bold text-2xl text-center text-neutral-800">
